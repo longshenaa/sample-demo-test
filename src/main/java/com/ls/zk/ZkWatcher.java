@@ -60,6 +60,7 @@ public class ZkWatcher implements Watcher {
     //修改节点
     public void updateNode(String path, String data) {
         try {
+            zooKeeper.exists(path, true);
             zooKeeper.setData(path, data.getBytes(), -1);
         }
         catch (KeeperException e) {
