@@ -1,8 +1,14 @@
 package com.ls.concurrent;
 
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.Lock;
+
 public class Res {
     private String name;
     private String sex;
+    public Lock lock = new ReentrantLock();
+    public Condition condition = lock.newCondition();
     /**
      * false 未赋值；true 未打印；
      */
