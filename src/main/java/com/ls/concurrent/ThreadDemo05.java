@@ -1,8 +1,19 @@
 package com.ls.concurrent;
 
-public class ThreadDemo05 implements Runnable{
-    public volatile boolean flag = false;
+import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
+public class ThreadDemo05 implements Runnable{
+    private static AtomicInteger index = new AtomicInteger();
+    private static  ExecutorService executorService = new ThreadPoolExecutor(0, 100, 1L, TimeUnit.SECONDS, new ArrayBlockingQueue<>(10), new ThreadFactory() {
+        @Override
+        public Thread newThread(Runnable r) {
+            int i = index.incrementAndGet();
+            Thread thread = new Thread(r, "thread-pool-exe-" + i);
+            return thread;
+        }
+    }, new ThreadPoolExecutor.AbortPolicy());
+    public volatile boolean flag = false;
     @Override
     public void run() {
         System.out.println("线程开始执行！");
