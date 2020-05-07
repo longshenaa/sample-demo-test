@@ -1,6 +1,8 @@
 package com.ls.annotation;
 
 import java.lang.reflect.Field;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 
 public class UserMain {
     public static void main(String[] args) throws ClassNotFoundException {
@@ -25,5 +27,7 @@ public class UserMain {
         sb.append("from ");
         sb.append(setTable.value());
         System.out.println(sb.toString());
+        ScheduledExecutorService scheduledExecutorService = Executors.newScheduledThreadPool(1);
+
     }
 }
