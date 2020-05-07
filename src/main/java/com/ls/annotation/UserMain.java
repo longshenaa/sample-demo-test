@@ -1,6 +1,5 @@
 package com.ls.annotation;
 
-import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 
 public class UserMain {
