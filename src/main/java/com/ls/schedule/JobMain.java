@@ -3,7 +3,6 @@ package com.ls.schedule;
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 
-import java.util.Collection;
 import java.util.Date;
 
 public class JobMain {
